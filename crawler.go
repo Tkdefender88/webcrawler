@@ -92,7 +92,6 @@ func (this *config) crawlPage(rawCurrentURL string) {
 		return
 	}
 
-	fmt.Printf("Crawling: %s\n", normUrl)
 	html, err := getHTML(rawCurrentURL)
 	if err != nil {
 		//fmt.Printf("error fetching html for the page: %v\n", err)

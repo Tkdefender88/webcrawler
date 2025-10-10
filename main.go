@@ -57,8 +57,9 @@ func run(args []string) error {
 	go cfg.crawlPage(baseUrl)
 	cfg.wg.Wait()
 
-	for page := range cfg.pages {
-		fmt.Printf("%s\n", page)
+	err = writeCSVReport(cfg.pages, "report.csv")
+	if err != nil {
+		return err
 	}
 
 	return nil
